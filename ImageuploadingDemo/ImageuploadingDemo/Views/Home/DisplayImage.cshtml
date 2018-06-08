@@ -1,0 +1,32 @@
+﻿@using ImageuploadingDemo;
+@{
+    ViewBag.Title = "DisplayImage";
+}
+
+<h2>DisplayImage</h2>
+@{
+    Student1Entities db = new Student1Entities();
+}
+<h1>Student Details</h1>
+@using (Html.BeginForm())
+{
+    <table border="1" width="30px">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in db.tblStudents)
+            {
+                <tr>
+                    <td><img src="~/images/@item.ImageUrl" width="100" height="100" /></td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
